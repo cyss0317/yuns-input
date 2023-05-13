@@ -22,7 +22,7 @@ enum InputType {
 enum FontSize {
   "small" = "12px",
   "medium" = "16px",
-  "large" = "20px"
+  "large" = "20px",
 }
 
 export function Input(props: InputProps) {
@@ -36,7 +36,7 @@ export function Input(props: InputProps) {
     errorMessage = "",
     resetErrorMessage,
     fontSize = FontSize["medium"],
-    args
+    args,
   } = props;
   const [focus, setFocus] = React.useState<boolean>(false);
 
@@ -44,13 +44,17 @@ export function Input(props: InputProps) {
     color,
     border: `1px solid ${color}40`,
     boxShadow: focus && `0 0 0 2px ${color}`,
-    transform: focus && 'scale(1.05)',
-    fontSize: fontSize
-  }
+    transform: focus && "scale(1.05)",
+    fontSize: fontSize,
+  };
 
   return (
     <div className="input-wrapper">
-      <label className="input-label" style={{ color, fontSize: fontSize }} htmlFor={name}>
+      <label
+        className="input-label"
+        style={{ color, fontSize: fontSize }}
+        htmlFor={name}
+      >
         {displayName}
       </label>
       <input
@@ -60,7 +64,7 @@ export function Input(props: InputProps) {
         type={type}
         value={value}
         onChange={(e) => {
-          onChange(prev => ({...prev, [name]: e.target}));
+          onChange((prev) => ({ ...prev, [name]: e.target }));
           resetErrorMessage();
         }}
         onFocus={() => setFocus(true)}
@@ -68,7 +72,7 @@ export function Input(props: InputProps) {
         style={inputStyle}
         {...args}
       />
-      <div className={errorMessage && "error-message"} >{errorMessage}</div>
+      <div className={errorMessage && "error-message"}>{errorMessage}</div>
     </div>
   );
 }

@@ -31,4 +31,3 @@ export const Large = {
     fontSize: "2rem",
   },
 };
-

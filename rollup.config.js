@@ -2,7 +2,7 @@ import babel from "rollup-plugin-babel";
 import resolve from "@rollup/plugin-node-resolve";
 import external from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
-import typescript from '@rollup/plugin-typescript';
+import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
 
 export default [
@@ -34,7 +34,7 @@ export default [
         jsx: "react",
       }),
       resolve(),
-      terser()
+      terser(),
     ],
   },
 ];
