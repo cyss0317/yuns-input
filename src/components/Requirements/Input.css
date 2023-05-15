@@ -4,11 +4,14 @@
   font-family: "Montserrat", sans-serif;
 }
 .input {
-  /* border: 2px solid attr(data-color) ; */
   border-radius: 0.3rem;
   padding-left: 0.5rem;
   margin-left: 0.8rem;
   transition: 0.1s;
+}
+
+div[data-label-width] {
+  margin-left: attr(data-label-width px);
 }
 
 .input:focus {
@@ -19,8 +22,7 @@
   position: relative;
 }
 .input-label {
-  /* color: #716af7; */
-  /* -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(102, 18, 18, 0.2)); */
+  transition: 0.2s;
 }
 
 .invalid {
@@ -32,13 +34,31 @@
 }
 
 .error-message {
-  position: absolute;
   color: #d64b4b;
   font-size: 0.8rem;
-  left: 10rem;
   text-align: left;
+  transition: 0.2s;
+}
+
+.error-message-column {
+  color: #d64b4b;
+  font-size: 0.8rem;
+  text-align: left;
+  transition: 0.2s;
 }
 
 .error-message::before {
   content: "- ";
+}
+
+.column {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  gap: 0.2rem;
+  justify-content: space-between;
+}
+
+.relative {
+  position: relative;
 }

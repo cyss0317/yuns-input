@@ -33,7 +33,7 @@ var n, o;
         : o.appendChild(document.createTextNode(e));
   }
 })(
-  '@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap");*{font-family:Montserrat,sans-serif}.input{border-radius:.3rem;margin-left:.8rem;padding-left:.5rem;transition:.1s}.input:focus{outline:none}.input-wrapper{position:relative}.invalid{box-shadow:0 0 0 2px #d64b4b}.valid{border:1px solid #05df05}.error-message{color:#d64b4b;font-size:.8rem;left:10rem;position:absolute;text-align:left}.error-message:before{content:"- "}'
+  '@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap");*{font-family:Montserrat,sans-serif}.input{border-radius:.3rem;margin-left:.8rem;padding-left:.5rem;transition:.1s}.input:focus{outline:none}.input-wrapper{position:relative}.invalid{box-shadow:0 0 0 2px #d64b4b}.valid{border:1px solid #05df05}.error-message{color:#d64b4b;font-size:.8rem;position:absolute;right:10rem;text-align:left}.error-message:before{content:"- "}'
 ),
   (function (e) {
     (e.TEXT = "text"), (e.PASSWORD = "password");

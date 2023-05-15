@@ -9,7 +9,7 @@ interface InputProps {
   type?: InputType;
   value?: string;
   onChange: (e: any) => void;
-  errorMessage?: string;
+  errorMessage?: string | [string];
   resetErrorMessage: () => void;
   args?: any;
 }
@@ -39,6 +39,16 @@ export function Input(props: InputProps) {
     args,
   } = props;
   const [focus, setFocus] = React.useState<boolean>(false);
+  const [errorWidth, setErrorWidth] = React.useState(0);
+
+  const labelRef = React.useCallback(
+    (node) => {
+      if (node !== null) {
+        setErrorWidth(node.getBoundingClientRect().width);
+      }
+    },
+    [displayName]
+  );
 
   const inputStyle = {
     color,
@@ -48,11 +58,38 @@ export function Input(props: InputProps) {
     fontSize: fontSize,
   };
 
+  const labelStyle = {
+    color: color,
+    fontSize: fontSize,
+  };
+
+  const renderErrors = () =>
+    Array.isArray(errorMessage) ? (
+      <div
+        className="error-message-column"
+        style={{ marginLeft: `${errorWidth + 16}px` }}
+      >
+        {errorMessage.map((error, idx) => (
+          <div key={idx} className={`error-message`}>
+            {error}
+          </div>
+        ))}
+      </div>
+    ) : (
+      <div
+        className={errorMessage && "error-message"}
+        style={{ marginLeft: `${errorWidth + 16}px` }}
+      >
+        {errorMessage}
+      </div>
+    );
+
   return (
     <div className="input-wrapper">
       <label
         className="input-label"
-        style={{ color, fontSize: fontSize }}
+        ref={labelRef}
+        style={labelStyle}
         htmlFor={name}
       >
         {displayName}
@@ -72,7 +109,7 @@ export function Input(props: InputProps) {
         style={inputStyle}
         {...args}
       />
-      <div className={errorMessage && "error-message"}>{errorMessage}</div>
+      {renderErrors()}
     </div>
   );
 }

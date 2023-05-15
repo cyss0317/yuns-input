@@ -18,7 +18,7 @@ export const Primary = {
     type: "text",
     // changeValue: ,
     color: "#222222",
-    errorMessage: "Something went wrong",
+    errorMessage: ["Something went wrong", "hello"],
   },
 };
 

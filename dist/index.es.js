@@ -24,9 +24,9 @@ function o(o) {
     m = void 0 === p ? "#222222" : p,
     u = o.errorMessage,
     f = void 0 === u ? "" : u,
-    v = o.resetErrorMessage,
-    g = o.fontSize,
-    h = void 0 === g ? n.medium : g,
+    g = o.resetErrorMessage,
+    v = o.fontSize,
+    h = void 0 === v ? n.medium : v,
     y = o.args,
     b = e.useState(!1),
     x = b[0],
@@ -64,7 +64,7 @@ function o(o) {
               var n;
               return t(t({}, r), (((n = {})[a] = e.target), n));
             }),
-              v();
+              g();
           },
           onFocus: function () {
             return E(!0);
@@ -95,7 +95,7 @@ function o(o) {
         : o.appendChild(document.createTextNode(e));
   }
 })(
-  '@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap");*{font-family:Montserrat,sans-serif}.input{border-radius:.3rem;margin-left:.8rem;padding-left:.5rem;transition:.1s}.input:focus{outline:none}.input-wrapper{position:relative}.invalid{box-shadow:0 0 0 2px #d64b4b}.valid{border:1px solid #05df05}.error-message{color:#d64b4b;font-size:.8rem;left:10rem;position:absolute;text-align:left}.error-message:before{content:"- "}'
+  '@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap");*{font-family:Montserrat,sans-serif}.input{border-radius:.3rem;margin-left:.8rem;padding-left:.5rem;transition:.1s}.input:focus{outline:none}.input-wrapper{position:relative}.invalid{box-shadow:0 0 0 2px #d64b4b}.valid{border:1px solid #05df05}.error-message{color:#d64b4b;font-size:.8rem;position:absolute;right:10rem;text-align:left}.error-message:before{content:"- "}'
 ),
   (function (e) {
     (e.TEXT = "text"), (e.PASSWORD = "password");
