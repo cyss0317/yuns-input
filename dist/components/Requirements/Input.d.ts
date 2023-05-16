@@ -11,6 +11,7 @@ interface InputProps {
     errorMessage?: string | [string];
     resetErrorMessage: () => void;
     args?: any;
+    vertical?: boolean;
 }
 declare enum InputType {
     TEXT = "text",

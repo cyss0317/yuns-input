@@ -3,12 +3,7 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
-.input {
-  border-radius: 0.3rem;
-  padding-left: 0.5rem;
-  margin-left: 0.8rem;
-  transition: 0.1s;
-}
+
 
 div[data-label-width] {
   margin-left: attr(data-label-width px);
@@ -21,6 +16,13 @@ div[data-label-width] {
 .input-wrapper {
   position: relative;
 }
+
+.input-wrapper-vertical {
+  position: relative;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+}
+
 .input-label {
   transition: 0.2s;
 }
@@ -41,6 +43,7 @@ div[data-label-width] {
 }
 
 .error-message-column {
+  position: absolute;
   color: #d64b4b;
   font-size: 0.8rem;
   text-align: left;

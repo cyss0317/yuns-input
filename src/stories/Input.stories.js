@@ -18,7 +18,7 @@ export const Primary = {
     type: "text",
     // changeValue: ,
     color: "#222222",
-    errorMessage: ["Something went wrong", "hello"],
+    errorMessage: ["Something went wrong", "hello", "Password doesn't match and this is long"],
   },
 };
 
@@ -29,5 +29,17 @@ export const Large = {
     type: "password",
     value: "1234",
     fontSize: "2rem",
+  },
+};
+
+export const Vertical = {
+  args: {
+    password: "name",
+    displayName: "Password",
+    type: "password",
+    value: "1234",
+    fontSize: "2rem",
+    vertical: true,
+    errorMessage: "tester"
   },
 };

@@ -12,6 +12,7 @@ interface InputProps {
   errorMessage?: string | [string];
   resetErrorMessage: () => void;
   args?: any;
+  vertical?: boolean;
 }
 
 enum InputType {
@@ -37,6 +38,7 @@ export function Input(props: InputProps) {
     resetErrorMessage,
     fontSize = FontSize["medium"],
     args,
+    vertical = false,
   } = props;
   const [focus, setFocus] = React.useState<boolean>(false);
   const [errorWidth, setErrorWidth] = React.useState(0);
@@ -54,20 +56,29 @@ export function Input(props: InputProps) {
     color,
     border: `1px solid ${color}40`,
     boxShadow: focus && `0 0 0 2px ${color}`,
-    transform: focus && "scale(1.05)",
+    transform: focus && "scale(1.02)",
     fontSize: fontSize,
+    borderRadius: "0.3rem",
+    paddingLeft: !vertical && "0.5rem",
+    marginLeft: !vertical ? "0.8rem" : "0px",
+    transition: "0.1s",
+    gridRow: vertical ? "2" : "",
   };
 
   const labelStyle = {
     color: color,
     fontSize: fontSize,
+    gridRow: vertical ? "1" : "",
   };
 
   const renderErrors = () =>
     Array.isArray(errorMessage) ? (
       <div
         className="error-message-column"
-        style={{ marginLeft: `${errorWidth + 16}px` }}
+        style={{
+          marginLeft: vertical ? "5px" : `${errorWidth + 16}px`,
+          gridRow: vertical ? "3" : "",
+        }}
       >
         {errorMessage.map((error, idx) => (
           <div key={idx} className={`error-message`}>
@@ -78,14 +89,20 @@ export function Input(props: InputProps) {
     ) : (
       <div
         className={errorMessage && "error-message"}
-        style={{ marginLeft: `${errorWidth + 16}px` }}
+        style={{
+          marginLeft: vertical ? "5px" : `${errorWidth + 16}px`,
+          gridRow: vertical ? "3" : "",
+        }}
       >
         {errorMessage}
       </div>
     );
 
   return (
-    <div className="input-wrapper">
+    <div
+      className={`${vertical ? "input-wrapper-vertical" : ""}`}
+      style={{ gap: "0.2rem" }}
+    >
       <label
         className="input-label"
         ref={labelRef}
@@ -101,7 +118,7 @@ export function Input(props: InputProps) {
         type={type}
         value={value}
         onChange={(e) => {
-          onChange((prev) => ({ ...prev, [name]: e.target }));
+          onChange((prev) => ({ ...prev, [name]: e.target.value }));
           resetErrorMessage();
         }}
         onFocus={() => setFocus(true)}
